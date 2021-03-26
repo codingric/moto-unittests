@@ -1,0 +1,12 @@
+name: build_image
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name : Trigger dockerhub
+        run: |
+          curl -XPOST https://hub.docker.com/api/build/v1/source/6eec3de1-e31e-4696-814d-b7d0c1bbed3b/trigger/df5a85dd-d339-4376-a0b0-884bfc8779a3/call/
